@@ -29,8 +29,8 @@ public class TaskServiceImpl implements TaskService {
 	}
 
 	@Override
-	public TaskContainerDTO updateTask(TaskDTO taskDTO) {
-		Task task = taskRepository.findById(taskDTO.getId()).get();
+	public TaskContainerDTO updateTask(long id, TaskDTO taskDTO) {
+		Task task = taskRepository.findById(id).get();
 		task.setTaskDescription(taskDTO.getTaskDescription());
 		return new TaskContainerDTO(new TaskDTO(task));
 	}

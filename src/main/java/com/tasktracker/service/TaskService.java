@@ -18,6 +18,6 @@ public interface TaskService {
 	 * @param taskDTO
 	 * @return
 	 */
-	public TaskContainerDTO updateTask(TaskDTO taskDTO);
+	public TaskContainerDTO updateTask(long id, TaskDTO taskDTO);
 
 }

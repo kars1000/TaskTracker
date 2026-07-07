@@ -4,8 +4,15 @@ import com.tasktracker.entity.Task;
 
 public class TaskDTO {
 	
+	public TaskDTO(String taskDescription) {
+		super();
+		this.taskDescription = taskDescription;
+	}
+
+
+
 	private String taskDescription;
-	private long id;
+	private Long id;
 
 	public TaskDTO(Task task) {
 		super();
@@ -15,7 +22,7 @@ public class TaskDTO {
 
 	
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 

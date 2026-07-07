@@ -16,8 +16,7 @@ import com.tasktracker.service.TaskService;
 @RestController
 @RequestMapping("/tasks")
 public class TasksResource {
-	
-	
+
 	private TaskService taskService;
 
 	public TasksResource(TaskService taskService) {
@@ -47,8 +46,8 @@ public class TasksResource {
 	}
 
 	@PutMapping("/{id}")
-	public void updateTask(@PathVariable long id) {
-		System.out.println(id);
+	public void updateTask(@PathVariable long id, @RequestBody TaskDTO taskDTO) {
+		taskService.updateTask(id,taskDTO);
 	}
 
 	@DeleteMapping("/{id}")
