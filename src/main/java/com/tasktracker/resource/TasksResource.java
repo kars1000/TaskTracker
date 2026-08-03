@@ -1,5 +1,6 @@
 package com.tasktracker.resource;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tasktracker.dto.TaskContainerDTO;
@@ -25,16 +27,16 @@ public class TasksResource {
 	}
 
 	@GetMapping()
-	public String getTasks() {
+	public TaskContainerDTO getTasks() {
 
-		return "test";
+		return taskService.findAllTasks();
 
 	}
 
 	@GetMapping("/{id}")
-	public String getTask(@PathVariable long id) {
+	public TaskContainerDTO getTask(@PathVariable long id) {
 
-		return "test";
+		return taskService.findTask(id);
 
 	}
 
@@ -47,12 +49,13 @@ public class TasksResource {
 
 	@PutMapping("/{id}")
 	public void updateTask(@PathVariable long id, @RequestBody TaskDTO taskDTO) {
-		taskService.updateTask(id,taskDTO);
+		taskService.updateTask(id, taskDTO);
 	}
 
 	@DeleteMapping("/{id}")
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteTask(@PathVariable long id) {
-		System.out.println(id);
+		taskService.deleteTask(id);
 	}
 
 }

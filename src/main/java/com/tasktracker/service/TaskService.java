@@ -19,5 +19,25 @@ public interface TaskService {
 	 * @return
 	 */
 	public TaskContainerDTO updateTask(long id, TaskDTO taskDTO);
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public TaskContainerDTO findAllTasks();
+	
+	/**
+	 * 
+	 * @param taskId
+	 * @return
+	 */
+	public TaskContainerDTO findTask(long taskId);
+	
+
+	/**
+	 * 
+	 * @param taskId
+	 */
+	public void deleteTask(long taskId);
 
 }
